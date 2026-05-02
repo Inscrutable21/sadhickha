@@ -1132,17 +1132,17 @@ audio {
 	bottom: -200px;
 	opacity: 0.6;
 	z-index: 99;
-	width: 100px;
-	height: 183px;
+	width: 70px;
+	height: 128px;
 	background-repeat: no-repeat no-repeat;
-	background-size: 100px 183px;
+	background-size: 70px 128px;
 }
 .balloons h2 {
 	text-transform: uppercase;
 	font-family: 'Signika', sans-serif;
-	font-size: 50px;
+	font-size: 30px;
 	color: #BF4136;
-	text-shadow: 5px 5px 5px #FFF;
+	text-shadow: 3px 3px 3px #FFF;
 	display: none;
 }
 #b1,#b11 {
@@ -1168,6 +1168,9 @@ audio {
 }
 #b8,#b88{
 	background-image: url('../assets/images/balloons/b8.png');
+}
+#b9,#b99{
+	background-image: url('../assets/images/balloons/b2.png');
 }
 .balloons-rotate-behaviour-one {
 	-webkit-animation: balloons_rotate_one linear 10s infinite;
@@ -1324,14 +1327,13 @@ audio {
 }
 
 .message {
-  position: absolute;         /* take it out of flow */
-  top: 80%;                   /* center vertically */
-  left: 50%;                  /* center horizontally */
-  transform: translate(-50%, -50%);
-  width: 90%;                 /* adjust as needed */
+  position: relative;
+  width: 100%;
   text-align: center;
-  display: none;              /* hidden until triggered */
-  z-index: 2000;              /* make sure it's above cake */
+  display: none;
+  z-index: 2000;
+  margin-top: 20px;
+  padding-bottom: 40px;
 }
 
 .message p {
@@ -1343,6 +1345,19 @@ audio {
   display: none;              /* controlled by JS */
   font-weight: bold;
   margin: 15px 0;             /* spacing between lines */
+}
+
+/* Blinking cursor while typing */
+.message p.typing::after {
+  content: '|';
+  color: #C4515C;
+  font-weight: bold;
+  animation: cursorBlink 0.6s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 .btn-primary {
