@@ -6,16 +6,19 @@ $('document').ready(function(){
 		var vw;
 		$(window).resize(function(){
 			 vw = $(window).width()/2;
+			 var isMob = $(window).width() < 768;
+			 var gap = isMob ? 35 : 100;
+			 var start = vw - (gap * 4);
 			$('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9').stop();
-			$('#b11').animate({top:240, left: vw-400},500);
-			$('#b22').animate({top:240, left: vw-300},500);
-			$('#b33').animate({top:240, left: vw-200},500);
-			$('#b44').animate({top:240, left: vw-100},500);
-			$('#b55').animate({top:240, left: vw},500);
-			$('#b66').animate({top:240, left: vw+100},500);
-			$('#b77').animate({top:240, left: vw+200},500);
-			$('#b88').animate({top:240, left: vw+300},500);
-			$('#b99').animate({top:240, left: vw+400},500);
+			$('#b11').animate({top:240, left: start},500);
+			$('#b22').animate({top:240, left: start + gap},500);
+			$('#b33').animate({top:240, left: start + gap*2},500);
+			$('#b44').animate({top:240, left: start + gap*3},500);
+			$('#b55').animate({top:240, left: start + gap*4},500);
+			$('#b66').animate({top:240, left: start + gap*5},500);
+			$('#b77').animate({top:240, left: start + gap*6},500);
+			$('#b88').animate({top:240, left: start + gap*7},500);
+			$('#b99').animate({top:240, left: start + gap*8},500);
 		});
 
 	$('#turn_on').click(function(){
@@ -146,6 +149,7 @@ $('document').ready(function(){
 
 	$('#cake_fadein').click(function(){
 		$('.cake').fadeIn('slow');
+		$('.scroll-hint').fadeIn('slow');
 		$(this).fadeOut('slow').delay(3000).promise().done(function(){
 			$('#light_candle').fadeIn('slow');
 		});
@@ -153,6 +157,7 @@ $('document').ready(function(){
 
 	$('#light_candle').click(function(){
 		$('.fuego').fadeIn('slow');
+		$('.scroll-hint').fadeOut('fast');
 		$(this).fadeOut('slow').promise().done(function(){
 			$('#wish_message').fadeIn('slow');
 		});
@@ -161,8 +166,13 @@ $('document').ready(function(){
 		
 	$('#wish_message').click(function(){
 		 vw = $(window).width()/2;
+		 var isMob = $(window).width() < 768;
+		 var gap = isMob ? 35 : 100;
+		 var start = vw - (gap * 4);
 
 		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9').stop();
+		$('.balloons').css('position', 'absolute');
+		
 		$('#b1').attr('id','b11');
 		$('#b2').attr('id','b22');
 		$('#b3').attr('id','b33');
@@ -172,15 +182,15 @@ $('document').ready(function(){
 		$('#b7').attr('id','b77');
 		$('#b8').attr('id','b88');
 		$('#b9').attr('id','b99');
-		$('#b11').animate({top:240, left: vw-400},500);
-		$('#b22').animate({top:240, left: vw-300},500);
-		$('#b33').animate({top:240, left: vw-200},500);
-		$('#b44').animate({top:240, left: vw-100},500);
-		$('#b55').animate({top:240, left: vw},500);
-		$('#b66').animate({top:240, left: vw+100},500);
-		$('#b77').animate({top:240, left: vw+200},500);
-		$('#b88').animate({top:240, left: vw+300},500);
-		$('#b99').animate({top:240, left: vw+400},500);
+		$('#b11').animate({top:240, left: start},500);
+		$('#b22').animate({top:240, left: start + gap},500);
+		$('#b33').animate({top:240, left: start + gap*2},500);
+		$('#b44').animate({top:240, left: start + gap*3},500);
+		$('#b55').animate({top:240, left: start + gap*4},500);
+		$('#b66').animate({top:240, left: start + gap*5},500);
+		$('#b77').animate({top:240, left: start + gap*6},500);
+		$('#b88').animate({top:240, left: start + gap*7},500);
+		$('#b99').animate({top:240, left: start + gap*8},500);
 		$('.balloons').css('opacity','0.9');
 		$('.balloons h2').fadeIn(3000);
 		$(this).fadeOut('slow').delay(3000).promise().done(function(){
@@ -190,6 +200,7 @@ $('document').ready(function(){
 	
 	$('#story').click(function(){
 		$(this).fadeOut('slow');
+		$('.scroll-hint').fadeOut('fast');
 		$('.cake').fadeOut('fast').promise().done(function(){
 			$('.message').show();
 		});
